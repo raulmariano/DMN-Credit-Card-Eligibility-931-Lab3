@@ -10,10 +10,6 @@
 >
 > **NOTE**: Some properties configured in `src/main/resources/application.properties` have to be updated replacing the `<TODO>` placeholder with actual values for your usage.
 
-# Description
-
-`<Your project's description>`
-
 # Building and running
 
 ### In dev mode
