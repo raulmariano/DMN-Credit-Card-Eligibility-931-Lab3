@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_512B4658-6C86-40DA-A9F6-848CBB302DAD" name="DMN_9C4AC081-8064-4CB4-9189-2B737F521BBA" expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" namespace="https://kie.org/dmn/_C4239145-C39C-4DC4-A69B-28D67B7D5DF0">
+  <itemDefinition id="_E1C550C5-1651-4B8F-B853-52B2ABAA2F8D" name="EligibilityResult" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" isCollection="false">
+    <typeRef>string</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_C76B8FCD-0429-4BA7-87FD-9DAE65111DD4" name="Applicant" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" isCollection="false">
+    <itemComponent id="_AE4074CD-1FEA-45AA-8AA2-D6367C900036" name="student" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" isCollection="false">
+      <typeRef>boolean</typeRef>
+    </itemComponent>
+    <itemComponent id="_331477FF-F528-4A9F-891C-7A462947F67E" name="annualIncome" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" isCollection="false">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_D4CC1AC4-F493-489A-BFBC-B2DE11BFB1AF" name="creditScore" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" isCollection="false">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_7EB8E211-7355-4942-99F5-4C4826E5E5A3" name="age" typeLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/" isCollection="false">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision id="_00A41005-833F-4266-A479-3E41B007D9BB" name="Eligibility Score Calculation">
+    <variable id="_BBA416F3-F36A-46F3-80DA-603569779437" name="Eligibility Score Calculation" typeRef="number"></variable>
+    <informationRequirement id="_428EDEAC-3518-4C44-9B16-BD80C984F3CB">
+      <requiredInput href="#_DC9AFC4D-DECD-47A7-8924-8C5361397C0E"></requiredInput>
+    </informationRequirement>
+  </decision>
+  <decision id="_3C36DA0A-E02D-4CAF-9EEF-FD35DDB842AF" name="IsEligible">
+    <variable id="_15783EF0-B5BC-483B-AEA2-47F3B07AAEF9" name="IsEligible" typeRef="string"></variable>
+    <informationRequirement id="_C748930D-9BAF-4CA2-8E01-1B295CA15D8A">
+      <requiredDecision href="#_00A41005-833F-4266-A479-3E41B007D9BB"></requiredDecision>
+    </informationRequirement>
+  </decision>
+  <inputData id="_DC9AFC4D-DECD-47A7-8924-8C5361397C0E" name="Applicant">
+    <variable id="_B09C8E3E-3410-42B8-962F-D8653A837C73" name="Applicant" typeRef="Applicant"></variable>
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_45786176-675E-40FB-B0D7-7FCCD008A630" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension></di:extension>
+      <dmndi:DMNShape id="_9E00B46D-509B-4ADA-A1B9-AA0DD28D713C" dmnElementRef="_DC9AFC4D-DECD-47A7-8924-8C5361397C0E" isListedInputData="false" isCollapsed="false">
+        <dc:Bounds x="620" y="220" width="160" height="80"></dc:Bounds>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_FC5538F8-D4BA-41C1-ACC4-2641A10377AC" dmnElementRef="_00A41005-833F-4266-A479-3E41B007D9BB" isListedInputData="false" isCollapsed="false">
+        <dc:Bounds x="620" y="100" width="160" height="80"></dc:Bounds>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_657A6726-FEDA-4D90-844A-EE3271B516E2" dmnElementRef="_3C36DA0A-E02D-4CAF-9EEF-FD35DDB842AF" isListedInputData="false" isCollapsed="false">
+        <dc:Bounds x="620" y="-40" width="160" height="80"></dc:Bounds>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_ADCF5BDC-FECC-47C5-91B9-F5DFD74D1350-AUTO-TARGET" dmnElementRef="_428EDEAC-3518-4C44-9B16-BD80C984F3CB" sourceElement="_9E00B46D-509B-4ADA-A1B9-AA0DD28D713C" targetElement="_FC5538F8-D4BA-41C1-ACC4-2641A10377AC">
+        <di:waypoint x="700" y="260"></di:waypoint>
+        <di:waypoint x="700" y="140"></di:waypoint>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_AB45B316-E62A-47AF-A789-9CD46869DE62-AUTO-TARGET" dmnElementRef="_C748930D-9BAF-4CA2-8E01-1B295CA15D8A" sourceElement="_FC5538F8-D4BA-41C1-ACC4-2641A10377AC" targetElement="_657A6726-FEDA-4D90-844A-EE3271B516E2">
+        <di:waypoint x="700" y="140"></di:waypoint>
+        <di:waypoint x="700" y="0"></di:waypoint>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
