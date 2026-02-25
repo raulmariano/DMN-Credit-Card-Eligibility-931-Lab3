@@ -4,7 +4,7 @@
   Copyright IBM Corp. 2025
 -->
 
-# `<Your project's title>`
+# `DMN Credit Card Eligibility`
 
 > _This project was auto-generated from the BAMOE Canvas Accelerator `Quarkus (DMN)`, and enables Decisions and Rules. It's built on [Quarkus](https://quarkus.io/), the Supersonic Subatomic Java Framework._
 >
